@@ -18,6 +18,8 @@ public class Subaru implements Car{
 		this.model = model;
 		carMiles = miles;
 		gasMileage = gas;
+
+		System.out.printf("Make: Subaru\nYear: %d\nModel: %s\nOwner: %s\nCurrent Miles: %d\nMileage: %d", year, model, owner, carMiles, gasMileage);
 	}
 
 	//Accelerates car
