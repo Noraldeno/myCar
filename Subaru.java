@@ -10,7 +10,7 @@ public class Subaru implements Car{
 	private int speed = 0;
 
 	private String owner, model;
-	private int year, model, carMiles, gasMileage;
+	private int year, carMiles, gasMileage;
 
 	public Subaru(String owner, int year, String model, int miles, int gas){
 		this.owner = owner;
@@ -32,5 +32,21 @@ public class Subaru implements Car{
 	public void slowDown(int num){
 		speed -= num;
 		System.out.println("Your current speed is now " + num);
+	}
+
+	public void carMiles(int miles){
+		carMiles += miles;
+	}
+
+	
+
+	//Checks if gas is almost empty
+	public boolean checkGas(int gas){
+		return false;
+	}
+
+	//Gas decreases as car is used
+	public int gasTank(int gas){
+		return 0;
 	}
 }
