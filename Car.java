@@ -14,10 +14,7 @@ public interface Car{
 	public void slowDown(int num);
 
 	//Adds miles to current mileage
-	public void addMileage(int miles);
-
-	//Takes in gas per mile
-	public void gasMileage(int gas);
+	public void carMiles(int miles);
 
 	//Checks if gas is almost empty
 	public boolean checkGas(int gas);
