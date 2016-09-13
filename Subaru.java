@@ -9,6 +9,17 @@ public class Subaru implements Car{
 	//Initializes speed
 	private int speed = 0;
 
+	private String owner, model;
+	private int year, model, carMiles, gasMileage;
+
+	public Subaru(String owner, int year, String model, int miles, int gas){
+		this.owner = owner;
+		this.year = year;
+		this.model = model;
+		carMiles = miles;
+		gasMileage = gas;
+	}
+
 	//Accelerates car
 	public void speedUp(int num){
 		speed += num;
