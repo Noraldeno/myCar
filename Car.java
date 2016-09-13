@@ -8,13 +8,13 @@ Date Created: September 12, 2016
 public interface Car{
 
 	//Speeds up object Car. Calculates miles at acceleration
-	public void speedUp(int num, int miles);
+	public void speedUp(int num, int miles, int time);
 
 	//Slows down object Car. Calculates miles at deceleration
-	public void slowDown(int num, int miles);
+	public void slowDown(int num, int miles, int time);
 
 	//Calculates miles at constant speed
-	public void constantSpeed(int miles);
+	public void constantSpeed(int miles, int time);
 
 	//Calculates the average speed
 	public void avgSpeed();
