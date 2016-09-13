@@ -17,7 +17,7 @@ public interface Car{
 	public void constantSpeed(int miles, int time);
 
 	//Calculates the average speed
-	public void avgSpeed();
+	public int avgSpeed();
 
 	//Checks if gas is almost empty
 	public boolean checkGas(int gas);
