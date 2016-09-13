@@ -12,15 +12,17 @@ public class Subaru implements Car{
 
 	private String owner, model;
 	private int year, car, mileage, time, fuelEcon;
+	private float tank;
 
-	public Subaru(String owner, int year, String model, int miles, int gas){
+	public Subaru(String owner, int year, String model, int miles, int gas, float tank){
 		this.owner = owner;
 		this.year = year;
 		this.model = model;
 		mileage = miles;
 		fuelEcon = gas;
+		this.tank = tank;
 		
-		System.out.printf("Make: Subaru\nYear: %d\nModel: %s\nOwner: %s\nCurrent Miles: %d\nMileage: %d", year, model, owner, mileage, fuelEcon);
+		System.out.printf("Make: Subaru\nYear: %d\nModel: %s\nOwner: %s\nCurrent Miles: %d\nMileage: %d\n\n", year, model, owner, mileage, fuelEcon);
 	}
 
 	//Accelerates car
@@ -45,7 +47,7 @@ public class Subaru implements Car{
 	}
 
 	//Calculates average speed
-	public int avgSpeed(){
+	public float avgSpeed(){
 		return travel/time;
 	}
 	//Checks if gas is almost empty
@@ -54,7 +56,7 @@ public class Subaru implements Car{
 	}
 
 	//Gas decreases as car is used
-	public int gasTank(int gas){
+	public float gasTank(int gas){
 		return 0;
 	}
 
