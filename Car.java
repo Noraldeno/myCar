@@ -17,13 +17,13 @@ public interface Car{
 	public void constantSpeed(int miles, int time);
 
 	//Calculates the average speed
-	public int avgSpeed();
+	public float avgSpeed();
 
 	//Checks if gas is almost empty
 	public boolean checkGas(int gas);
 
 	//Gas decreases as car is used
-	public int gasTank(int gas);
+	public float gasTank(int gas);
 
 	//Prints miles traveled, new mileage, average speed, and tank level
 	public void print();
