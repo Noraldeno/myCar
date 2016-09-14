@@ -90,22 +90,21 @@ public class Subaru implements Car{
 	 * @return time/hour 	The calculation of distance over a set time
 	 */
 	public float avgSpeed(){
-		return travel/time;
+		return travel / time;
 	}
 	
 	/**
 	 * Checks if there is still gas in tank.
 	 * 
-	 * @param gas 			The amount of gas used
 	 * @return true			Returns true if gas is greater than 0 gallon
 	 * @return false 		Returns false if gas is empty
 	 */
-	public boolean checkGas(int gas){
-		if (gasTank > 1.00){
+	public boolean checkGas(){
+		if (gasTank() > 1.00){
 			return true;
 		}
 
-		else if(gasTank <= 1.00 || gasTank > 0){
+		else if(gasTank() <= 1.00 || gasTank() > 0){
 			System.out.println("Fuel almost empty!! Find the nearest gas station!!");
 			return true;
 		}
@@ -119,10 +118,9 @@ public class Subaru implements Car{
 	/**
 	 * Calculates how much gas is left in tank
 	 * 
-	 * @param gas 			The amount of gas that is being used
 	 * @return tank 		The amount of gas left in tank
 	 */
-	public float gasTank(int gas){
+	public float gasTank(){
 		tank -= miles / fuelEcon 
 		System.out.printf("You have %f gallons left in your tank.\n", tank);
 		return tank;
