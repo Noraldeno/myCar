@@ -13,6 +13,12 @@ public class myCar{
 		//Initializes Subaru Object
 		Subaru myFirstCar = new Subaru("Norald Alejo", 2002, "WRX", 242000, 22, 12);
 
-		myFirstCar.speedUp(23, 5, 4);
+		myFirstCar.speedUp(23, 5, 0.42);
+		myFirstCar.constantSpeed(10, 0.532);
+		myFirstCar.speedUp(42, 3, 0.232);
+		myFirstCar.constantSpeed(40, 1.223);
+		myFirstCar.slowDown(65, 4, 0.343);
+
+		myFirstCar.print();
 	}
 }
