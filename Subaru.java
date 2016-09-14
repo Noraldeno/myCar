@@ -50,7 +50,7 @@ public class Subaru implements Car{
 		speed += num;
 		travel += miles;
 		time += hour;
-		System.out.printf("Your current speed is now %d mph.\nYou have traveled %d miles in %d hours", num, travel, time);
+		System.out.printf("Your current speed is now %d mph.\nYou have traveled %d miles in %d hours", speed, travel, time);
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class Subaru implements Car{
 		speed -= num;
 		travel += miles;
 		time += hour;
-		System.out.printf("Your current speed is now %d mph.\nYou have traveled %d miles in %d hours", num, travel, time);
+		System.out.printf("Your current speed is now %d mph.\nYou have traveled %d miles in %d hours", speed, travel, time);
 	}
 
 	/**
@@ -81,7 +81,7 @@ public class Subaru implements Car{
 		travel += miles;
 		time += hour;
 
-		System.out.printf("Your current speed is now %d mph.\n You have traveled %d miles in %d hours", num, travel, time);
+		System.out.printf("Your current speed is now %d mph.\n You have traveled %d miles in %d hours", speed, travel, time);
 	}
 
 	/**
@@ -100,11 +100,11 @@ public class Subaru implements Car{
 	 * @return false 		Returns false if gas is empty
 	 */
 	public boolean checkGas(){
-		if (gasTank() > 1.00){
+		if (tank > 1.00){
 			return true;
 		}
 
-		else if(gasTank() <= 1.00 || gasTank() > 0){
+		else if(tank <= 1.00 || tank > 0){
 			System.out.println("Fuel almost empty!! Find the nearest gas station!!");
 			return true;
 		}
@@ -120,8 +120,8 @@ public class Subaru implements Car{
 	 * 
 	 * @return tank 		The amount of gas left in tank
 	 */
-	public float gasTank(){
-		tank -= miles / fuelEcon 
+	public float gasTank(int miles){
+		tank -= miles / fuelEcon;
 		System.out.printf("You have %f gallons left in your tank.\n", tank);
 		return tank;
 	}
