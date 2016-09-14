@@ -53,7 +53,7 @@ public interface Car{
 	 * @return true			Returns true if gas is not empty
 	 * @return false 		Returns false if gas is empty
 	 */
-	public boolean checkGas();
+	public boolean checkGas(double miles);
 
 	/**
 	 * Calculates how much gas is left in tank
