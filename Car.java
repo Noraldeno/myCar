@@ -1,5 +1,6 @@
 /**
- * This program 
+ * This program allows object Subaru to interact with outside world
+ * 
  * @author  Norald Alejo
  * @version 1.00
  * 
@@ -42,18 +43,17 @@ public interface Car{
 	public float avgSpeed();
 
 	/**
-	 * Checks if tank is empty.
+	 * Checks if there is still gas in tank.
 	 * 
-	 * @param gas 			The amount of gas used
 	 * @return true			Returns true if gas is not empty
 	 * @return false 		Returns false if gas is empty
 	 */
-	public boolean checkGas(int gas);
+	public boolean checkGas();
 
 	/**
 	 * Calculates how much gas is left in tank
-	 * 
-	 * @param gas 			The amount of gas that is being used
+	 *
+	 * @param gas  			The amount of gas used
 	 * @return tank 		The amount of gas left in tank
 	 */
 	public float gasTank(int gas);
