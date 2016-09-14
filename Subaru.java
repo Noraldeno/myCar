@@ -13,7 +13,7 @@ public class Subaru implements Car{
 
 	private String owner, model;
 	private int year, car, mileage, fuelEcon;
-	private float tank, float;
+	private float tank, time;
 
 	/**
 	 * Constructor for Subaru object and sets owner, year, model, miles,
@@ -94,14 +94,26 @@ public class Subaru implements Car{
 	}
 	
 	/**
-	 * Checks if tank is empty.
+	 * Checks if there is still gas in tank.
 	 * 
 	 * @param gas 			The amount of gas used
-	 * @return true			Returns true if gas is not empty
+	 * @return true			Returns true if gas is greater than 0 gallon
 	 * @return false 		Returns false if gas is empty
 	 */
 	public boolean checkGas(int gas){
-		return false;
+		if (gasTank > 1.00){
+			return true;
+		}
+
+		else if(gasTank <= 1.00 || gasTank > 0){
+			System.out.println("Fuel almost empty!! Find the nearest gas station!!");
+			return true;
+		}
+
+		else{
+			System.out.println("No more fuel!!");
+			return false;
+		}
 	}
 
 	/**
@@ -111,7 +123,9 @@ public class Subaru implements Car{
 	 * @return tank 		The amount of gas left in tank
 	 */
 	public float gasTank(int gas){
-		return 0;
+		tank -= miles / fuelEcon 
+		System.out.printf("You have %f gallons left in your tank.\n", tank);
+		return tank;
 	}
 
 	/**
