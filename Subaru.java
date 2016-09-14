@@ -12,8 +12,8 @@ public class Subaru implements Car{
 	private int travel = 0;
 
 	private String owner, model;
-	private int year, car, mileage, time, fuelEcon;
-	private float tank;
+	private int year, car, mileage, fuelEcon;
+	private float tank, float;
 
 	/**
 	 * Constructor for Subaru object and sets owner, year, model, miles,
@@ -39,7 +39,8 @@ public class Subaru implements Car{
 
 	/**
 	 * Accelerates car while calculating miles and time 
-	 * traveled
+	 * traveled. Prints out current speed, time and 
+	 * miles traveled
 	 * 
 	 * @param num 			The speed to accelerate
 	 * @param miles 		The miles traveled while accelerating
@@ -49,11 +50,13 @@ public class Subaru implements Car{
 		speed += num;
 		travel += miles;
 		time += hour;
-		System.out.println("Your current speed is now " + num);
+		System.out.printf("Your current speed is now %d mph.\nYou have traveled %d miles in %d hours", num, travel, time);
 	}
 
 	/**
-	 * Decelerates car while calculating miels and time traveled
+	 * Decelerates car while calculating miels and time traveled.
+	 * Prints out current speed, time and 
+	 * miles traveled
 	 * 
 	 * @param num 			The speed to decelerate
 	 * @param miles 		The miles traveled while decelerating
@@ -63,11 +66,13 @@ public class Subaru implements Car{
 		speed -= num;
 		travel += miles;
 		time += hour;
-		System.out.println("Your current speed is now " + num);
+		System.out.printf("Your current speed is now %d mph.\nYou have traveled %d miles in %d hours", num, travel, time);
 	}
 
 	/**
-	 * Calcuates miles traveled in a time while traveling at constant speed
+	 * Calcuates miles traveled in a time while traveling
+	 * at constant speed. Prints out current speed, time and 
+	 * miles traveled
 	 * 
 	 * @param miles 		The miles traveled 
 	 * @param time			The time spent driving
@@ -75,6 +80,8 @@ public class Subaru implements Car{
 	public void constantSpeed(int miles, int hour){
 		travel += miles;
 		time += hour;
+
+		System.out.printf("Your current speed is now %d mph.\n You have traveled %d miles in %d hours", num, travel, time);
 	}
 
 	/**
