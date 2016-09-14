@@ -52,11 +52,11 @@ public interface Car{
 
 	/**
 	 * Calculates how much gas is left in tank
-	 *
-	 * @param gas  			The amount of gas used
+	 * 
+	 * @param  miles  		The amount of miles driven
 	 * @return tank 		The amount of gas left in tank
 	 */
-	public float gasTank(int gas);
+	public void gasTank(int miles);
 
 	/**
 	 * Prints miles traveled, new mileage, average speed, and tank level
