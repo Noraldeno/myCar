@@ -16,7 +16,7 @@ public interface Car{
 	 * @param miles 		The miles traveled while accelerating
 	 * @param time			The time spent while accelerating
 	 */
-	public void speedUp(int num, int miles, double time);
+	public void speedUp(int num, double miles, double time);
 
 	/**
 	 * Decelerates car while calculating miels and time traveled
@@ -25,7 +25,7 @@ public interface Car{
 	 * @param miles 		The miles traveled while decelerating
 	 * @param time			The time spent while decelerating
 	 */
-	public void slowDown(int num, int miles, double time);
+	public void slowDown(int num, double miles, double time);
 
 	/**
 	 * Calcuates miles traveled in a time while traveling at constant speed
@@ -33,7 +33,7 @@ public interface Car{
 	 * @param miles 		The miles traveled 
 	 * @param time			The time spent driving
 	 */
-	public void constantSpeed(int miles, double time);
+	public void constantSpeed(double miles, double time);
 
 	/**
 	 * Calculates the average speed in one drive
@@ -56,7 +56,7 @@ public interface Car{
 	 * @param  miles  		The amount of miles driven
 	 * @return tank 		The amount of gas left in tank
 	 */
-	public void gasTank(int miles);
+	public void gasTank(double miles);
 
 	/**
 	 * Prints miles traveled, new mileage, average speed, and tank level
