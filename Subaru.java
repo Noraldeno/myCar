@@ -34,7 +34,8 @@ public class Subaru implements Car{
 		fuelEcon = gas;
 		this.tank = tank;
 		
-		System.out.printf("Make: Subaru\nYear: %d\nModel: %s\nOwner: %s\nCurrent Miles: %d\nMileage: %d\n\n", year, model, owner, mileage, fuelEcon);
+		System.out.printf("Make: Subaru\nYear: %d\nModel: %s\nOwner: %s\nCurrent Miles: %d\nMileage: %d\nTank Capacity: %.2f\n\n", year, model, owner, mileage, fuelEcon, tank);
+		System.out.println("****************************\n");
 	}
 
 	/**
@@ -47,10 +48,16 @@ public class Subaru implements Car{
 	 * @param time			The time spent while accelerating
 	 */
 	public void speedUp(int num, int miles, int hour){
-		speed += num;
-		travel += miles;
-		time += hour;
-		System.out.printf("You have accelerated to %d mph.\nYou have traveled %d miles in %.2f hours", speed, travel, time);
+		if (checkGas()){
+			speed += num;
+			travel += miles;
+			time += hour;
+
+			//Updates fuel tank
+			gasTank(miles);
+
+			System.out.printf("You have accelerated to %d mph.\nYou have traveled %d miles in %.2f hours", speed, travel, time);
+		}
 	}
 
 	/**
@@ -78,10 +85,15 @@ public class Subaru implements Car{
 	 * @param time			The time spent driving
 	 */
 	public void constantSpeed(int miles, int hour){
-		travel += miles;
-		time += hour;
+		if (checkGas()){	
+			travel += miles;
+			time += hour;
 
-		System.out.printf("You are driving at constant speed of %d mph.\n You have traveled %d miles in %.2f hours", speed, travel, time);
+			//Updates fuel tank
+			gasTank(miles);
+
+			System.out.printf("You are driving at constant speed of %d mph.\n You have traveled %d miles in %.2f hours", speed, travel, time);
+		}
 	}
 
 	/**
@@ -123,7 +135,7 @@ public class Subaru implements Car{
 	 */
 	public void gasTank(int miles){
 		tank -= miles / fuelEcon;
-		System.out.printf("You have %f gallons left in your tank.\n", tank);
+		System.out.printf("You have %.2f gallons left in your tank.\n", tank);
 	}
 
 	/**
