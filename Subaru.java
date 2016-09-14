@@ -57,6 +57,7 @@ public class Subaru implements Car{
 		if (checkGas()){
 			speed += num;
 			travel += miles;
+			mileage += miles;
 			time += hour;
 
 			System.out.printf("You are accelerating to %d mph.\n", speed);
@@ -79,6 +80,7 @@ public class Subaru implements Car{
 	public void slowDown(int num, int miles, double hour){
 		speed -= num;
 		travel += miles;
+		mileage += miles;
 		time += hour;
 		System.out.printf("You are decelerating to %d mph.\n", speed);
 		System.out.printf("You have traveled %d miles in %.2f hours\n\n", travel, time);
@@ -96,7 +98,8 @@ public class Subaru implements Car{
 		if (checkGas()){	
 			travel += miles;
 			time += hour;
-
+			mileage += miles;
+			
 			System.out.printf("You are driving at constant speed of %d mph.\n", speed);
 			System.out.printf("You have traveled %d miles in %.2f hours\n\n", travel, time);
 			
@@ -156,7 +159,7 @@ public class Subaru implements Car{
 		System.out.printf("Distance traveled: %d\n", travel);
 		System.out.printf("Time Spent: %.2f\n", time);
 		System.out.printf("Average Speed: %.2f\n", avgSpeed());
-		System.out.printf("New Mileage: %d", mileage);
+		System.out.printf("New Mileage: %d\n", mileage);
 		System.out.printf("Fuel Left: %.2f\n", tank);
 	}
 }
