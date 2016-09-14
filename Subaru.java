@@ -118,12 +118,12 @@ public class Subaru implements Car{
 	/**
 	 * Calculates how much gas is left in tank
 	 * 
+	 * @param  miles  		The amount of miles driven
 	 * @return tank 		The amount of gas left in tank
 	 */
-	public float gasTank(int miles){
+	public void gasTank(int miles){
 		tank -= miles / fuelEcon;
 		System.out.printf("You have %f gallons left in your tank.\n", tank);
-		return tank;
 	}
 
 	/**
