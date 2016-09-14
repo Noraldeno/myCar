@@ -9,11 +9,11 @@
 public class Subaru implements Car{
 	//Initializes speed
 	private int speed = 0;
-	private int travel = 0;
+	private double travel = 0;
 
 	private String owner, model;
-	private int year, car, mileage, fuelEcon;
-	private double tank, time;
+	private int year, car, fuelEcon;
+	private double tank, time, mileage;
 
 	/**
 	 * Constructor for Subaru object and sets owner, year, model, miles,
@@ -26,7 +26,7 @@ public class Subaru implements Car{
 	 * @param gas 		The fuel economy of the car
 	 * @param tank 		The capacity of the fuel tank
 	 */
-	public Subaru(String owner, int year, String model, int miles, int gas, double tank){
+	public Subaru(String owner, int year, String model, double miles, int gas, double tank){
 		this.owner = owner;
 		this.year = year;
 		this.model = model;
@@ -38,10 +38,10 @@ public class Subaru implements Car{
 		System.out.printf("Year: %d\n", year);
 		System.out.printf("Model: %s\n", model);
 		System.out.printf("Owner: %s\n", owner);
-		System.out.printf("Current Miles: %d\n", mileage);
+		System.out.printf("Current Miles: %.2f\n", mileage);
 		System.out.printf("Fuel Economy: %d\n", fuelEcon);
 		System.out.printf("Tank Capacity: %.2f\n\n", tank);
-		System.out.println("****************************\n");
+		System.out.println("****************************\n\n");
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class Subaru implements Car{
 	 * @param miles 		The miles traveled while accelerating
 	 * @param time			The time spent while accelerating
 	 */
-	public void speedUp(int num, int miles, double hour){
+	public void speedUp(int num, double miles, double hour){
 		if (checkGas()){
 			speed += num;
 			travel += miles;
@@ -61,7 +61,7 @@ public class Subaru implements Car{
 			time += hour;
 
 			System.out.printf("You are accelerating to %d mph.\n", speed);
-			System.out.printf("You have traveled %d miles in %.2f hours\n\n", travel, time);
+			System.out.printf("You have traveled %.2f miles in %.2f hours.\n", travel, time);
 			
 			//Updates fuel tank
 			gasTank(miles);
@@ -77,13 +77,13 @@ public class Subaru implements Car{
 	 * @param miles 		The miles traveled while decelerating
 	 * @param time			The time spent while decelerating
 	 */
-	public void slowDown(int num, int miles, double hour){
+	public void slowDown(int num, double miles, double hour){
 		speed -= num;
 		travel += miles;
 		mileage += miles;
 		time += hour;
 		System.out.printf("You are decelerating to %d mph.\n", speed);
-		System.out.printf("You have traveled %d miles in %.2f hours\n\n", travel, time);
+		System.out.printf("You have traveled %.2f miles in %.2f hours.\n\n", travel, time);
 	}
 
 	/**
@@ -94,14 +94,14 @@ public class Subaru implements Car{
 	 * @param miles 		The miles traveled 
 	 * @param time			The time spent driving
 	 */
-	public void constantSpeed(int miles, double hour){
+	public void constantSpeed(double miles, double hour){
 		if (checkGas()){	
 			travel += miles;
 			time += hour;
 			mileage += miles;
-			
+
 			System.out.printf("You are driving at constant speed of %d mph.\n", speed);
-			System.out.printf("You have traveled %d miles in %.2f hours\n\n", travel, time);
+			System.out.printf("You have traveled %.2f miles in %.2f hours.\n", travel, time);
 			
 			//Updates fuel tank
 			gasTank(miles);
@@ -145,21 +145,21 @@ public class Subaru implements Car{
 	 * @param  miles  		The amount of miles driven
 	 * @return tank 		The amount of gas left in tank
 	 */
-	public void gasTank(int miles){
+	public void gasTank(double miles){
 		tank -= miles / fuelEcon;
-		System.out.printf("You have %.2f gallons left in your tank.\n", tank);
+		System.out.printf("You have %.2f gallons left in your tank.\n\n", tank);
 	}
 
 	/**
 	 * Prints miles traveled, time spent new mileage, average speed, and tank level
 	 */
 	public void print(){
-		System.out.println("\n\n************************");
+		System.out.println("\n\n***************************");
 		System.out.println("Driving ended...");
-		System.out.printf("Distance traveled: %d\n", travel);
+		System.out.printf("Distance traveled: %.2f\n", travel);
 		System.out.printf("Time Spent: %.2f\n", time);
 		System.out.printf("Average Speed: %.2f\n", avgSpeed());
-		System.out.printf("New Mileage: %d\n", mileage);
+		System.out.printf("New Mileage: %.2f\n", mileage);
 		System.out.printf("Fuel Left: %.2f\n", tank);
 	}
 }
