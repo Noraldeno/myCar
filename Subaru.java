@@ -50,7 +50,7 @@ public class Subaru implements Car{
 		speed += num;
 		travel += miles;
 		time += hour;
-		System.out.printf("Your current speed is now %d mph.\nYou have traveled %d miles in %d hours", speed, travel, time);
+		System.out.printf("You have accelerated to %d mph.\nYou have traveled %d miles in %.2f hours", speed, travel, time);
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class Subaru implements Car{
 		speed -= num;
 		travel += miles;
 		time += hour;
-		System.out.printf("Your current speed is now %d mph.\nYou have traveled %d miles in %d hours", speed, travel, time);
+		System.out.printf("You have decelerated %d mph.\nYou have traveled %d miles in %.2f hours", speed, travel, time);
 	}
 
 	/**
@@ -81,7 +81,7 @@ public class Subaru implements Car{
 		travel += miles;
 		time += hour;
 
-		System.out.printf("Your current speed is now %d mph.\n You have traveled %d miles in %d hours", speed, travel, time);
+		System.out.printf("You are driving at constant speed of %d mph.\n You have traveled %d miles in %.2f hours", speed, travel, time);
 	}
 
 	/**
