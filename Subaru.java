@@ -59,11 +59,11 @@ public class Subaru implements Car{
 			travel += miles;
 			time += hour;
 
-			//Updates fuel tank
-			gasTank(miles);
-
 			System.out.printf("You are accelerating to %d mph.\n", speed);
 			System.out.printf("You have traveled %d miles in %.2f hours\n\n", travel, time);
+			
+			//Updates fuel tank
+			gasTank(miles);
 		}
 	}
 
@@ -97,11 +97,11 @@ public class Subaru implements Car{
 			travel += miles;
 			time += hour;
 
-			//Updates fuel tank
-			gasTank(miles);
-
 			System.out.printf("You are driving at constant speed of %d mph.\n", speed);
 			System.out.printf("You have traveled %d miles in %.2f hours\n\n", travel, time);
+			
+			//Updates fuel tank
+			gasTank(miles);
 		}
 	}
 
