@@ -16,7 +16,8 @@ public class myCar{
 		myFirstCar.speedUp(23, 5, 0.42);
 		myFirstCar.constantSpeed(10, 0.532);
 		myFirstCar.speedUp(42, 3, 0.232);
-		myFirstCar.constantSpeed(40, 1.223);
+		myFirstCar.constantSpeed(90, 1.223);
+		myFirstCar.speedUp(40, 132, 4);
 		myFirstCar.slowDown(65, 4, 0.343);
 
 		myFirstCar.print();
