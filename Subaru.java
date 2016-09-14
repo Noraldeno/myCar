@@ -12,7 +12,7 @@ public class Subaru implements Car{
 	private double travel = 0;
 
 	private String owner, model;
-	private int year, car, fuelEcon;
+	private int year, car, fuelEcon, stop;
 	private double tank, time, mileage;
 
 	/**
@@ -54,7 +54,8 @@ public class Subaru implements Car{
 	 * @param time			The time spent while accelerating
 	 */
 	public void speedUp(int num, double miles, double hour){
-		if (checkGas()){
+		if (checkGas(miles)){
+			stop = 0;
 			speed += num;
 			travel += miles;
 			mileage += miles;
@@ -78,12 +79,14 @@ public class Subaru implements Car{
 	 * @param time			The time spent while decelerating
 	 */
 	public void slowDown(int num, double miles, double hour){
-		speed -= num;
-		travel += miles;
-		mileage += miles;
-		time += hour;
-		System.out.printf("You are decelerating to %d mph.\n", speed);
-		System.out.printf("You have traveled %.2f miles in %.2f hours.\n\n", travel, time);
+		if (stop != 1 && checkGas(miles)){	
+			speed -= num;
+			travel += miles;
+			mileage += miles;
+			time += hour;
+			System.out.printf("You are decelerating to %d mph.\n", speed);
+			System.out.printf("You have traveled %.2f miles in %.2f hours.\n\n", travel, time);
+		}
 	}
 
 	/**
@@ -95,7 +98,7 @@ public class Subaru implements Car{
 	 * @param time			The time spent driving
 	 */
 	public void constantSpeed(double miles, double hour){
-		if (checkGas()){	
+		if (stop != 1 && checkGas(miles)){	
 			travel += miles;
 			time += hour;
 			mileage += miles;
@@ -104,7 +107,7 @@ public class Subaru implements Car{
 			System.out.printf("You have traveled %.2f miles in %.2f hours.\n", travel, time);
 			
 			//Updates fuel tank
-			gasTank(miles);
+			gasTank(miles - 3.5);
 		}
 	}
 
@@ -112,14 +115,17 @@ public class Subaru implements Car{
 	 * Stops the car to 0 mph
 	 */
 	public void stop(){
-		double stopDistance = Math.pow(speed, 2) / (2 * 0.8 * 9.8) * 0.0006213;
-		speed = 0;
-		double required = stopDistance / 22;
-		mileage += stopDistance;
-		time += required;
-		System.out.println("You car is now stopped.");
-		System.out.printf("Stopping Distance: %.2f miles.\n", stopDistance);
-		System.out.printf("Time Required To Stop: %.2f hours.\n", required);
+		if (stop == 0){	
+			double stopDistance = Math.pow(speed, 2) / (2 * 0.8 * 9.8) * 0.0006213;
+			double required = stopDistance / (0.2 * speed);
+			speed = 0;
+			stop = 1;
+			mileage += stopDistance;
+			time += required;
+			System.out.println("You car is now stopping.");
+			System.out.printf("Stopping Distance: %.2f miles.\n", stopDistance);
+			System.out.printf("Time Required To Stop: %.2f hours.\n\n", required);
+		}
 	}
 	
 	/**
@@ -131,24 +137,31 @@ public class Subaru implements Car{
 		return travel / time;
 	}
 	
+	
 	/**
 	 * Checks if there is still gas in tank.
 	 * 
 	 * @return true			Returns true if gas is greater than 0 gallon
 	 * @return false 		Returns false if gas is empty
 	 */
-	public boolean checkGas(){
-		if (tank > 1.00){
+	public boolean checkGas(double miles){
+
+		if (tank > 2.00 && (tank * fuelEcon) >= miles) {
 			return true;
 		}
-
-		else if(tank <= 1.00 && tank > 0){
+		else if (tank <= 2.00 && tank > 0 && (tank * fuelEcon) >= miles){
 			System.out.println("Fuel almost empty!! Find the nearest gas station!!");
 			return true;
 		}
+		else if (tank > 0 && (tank * fuelEcon) < miles){
+			System.out.printf("You no longer have enough fuel to travel %.2f miles.\n", miles);
+			System.out.printf("You can only travel %.2f more miles.\n", (tank * fuelEcon));
+			System.out.printf("You would need %.2f more gallons to travel %.2f miles.\n\n", ((miles / fuelEcon) - tank), miles);
+			return false;
+		}
 
 		else{
-			System.out.println("No more fuel!!");
+			System.out.println("No more fuel!");
 			stop();
 			return false;
 		}
