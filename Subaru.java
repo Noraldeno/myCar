@@ -109,6 +109,20 @@ public class Subaru implements Car{
 	}
 
 	/**
+	 * Stops the car to 0 mph
+	 */
+	public void stop(){
+		double stopDistance = Math.pow(speed, 2) / (2 * 0.8 * 9.8) * 0.0006213;
+		speed = 0;
+		double required = stopDistance / 22;
+		mileage += stopDistance;
+		time += required;
+		System.out.println("You car is now stopped.");
+		System.out.printf("Stopping Distance: %.2f miles.\n", stopDistance);
+		System.out.printf("Time Required To Stop: %.2f hours.\n", required);
+	}
+	
+	/**
 	 * Calculates the average speed in one drive
 	 * 
 	 * @return time/hour 	The calculation of distance over a set time
@@ -128,13 +142,14 @@ public class Subaru implements Car{
 			return true;
 		}
 
-		else if(tank <= 1.00 || tank > 0){
+		else if(tank <= 1.00 && tank > 0){
 			System.out.println("Fuel almost empty!! Find the nearest gas station!!");
 			return true;
 		}
 
 		else{
 			System.out.println("No more fuel!!");
+			stop();
 			return false;
 		}
 	}
