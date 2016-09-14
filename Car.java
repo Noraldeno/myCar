@@ -36,6 +36,11 @@ public interface Car{
 	public void constantSpeed(double miles, double time);
 
 	/**
+	 * Stops the car to 0 mph
+	 */
+	public void stop();
+	
+	/**
 	 * Calculates the average speed in one drive
 	 * 
 	 * @return time/hour 	The calculation of distance over a set time
